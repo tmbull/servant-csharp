@@ -498,7 +498,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("${namespace conf}")]
-[assembly: AssemblyCopyright("Copyright ©  ${show year}")]
+[assembly: AssemblyCopyright("Copyright ${show year}")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
