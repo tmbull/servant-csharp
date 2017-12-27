@@ -28,7 +28,7 @@ import Data.Aeson
 import Data.ByteString (ByteString)
 import Data.ByteString.Char8 as BC (unpack)
 import Data.Char (toUpper, toLower)
-import qualified Data.HashMap.Lazy as M
+import qualified Data.HashMap.Strict.InsOrd as M
 import Data.List (intercalate)
 import Data.Maybe (fromJust)
 import Data.Monoid ((<>))
@@ -339,7 +339,7 @@ convert (name, s) = do
       convByFormat "date" = return (name, FDay)
       convByFormat "yyyy-mm-ddThh:MM:ssZ" = return (name, FUTCTime)
       convByItemType :: Monad m
-                        => SwaggerItems Schema -> SwagT m (Text, FieldType)
+                        => SwaggerItems t -> SwagT m (Text, FieldType)
       convByItemType (SwaggerItemsObject (Ref (Reference s))) = do
                       (n, t) <- convRef name s
                       return (n, FList t)
